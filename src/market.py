@@ -31,7 +31,7 @@ class Market:
 
 class Asset:
 
-    def __init__(self, name, market, price_history, volume, dividend=0, interest=0):
+    def __init__(self, name, market, price_history, classification ,volume, dividend=0, interest=0):
         self.name = name
         market.add_asset(self)
         self.offers = []
@@ -42,6 +42,7 @@ class Asset:
         self.price_history = price_history
         self.dividend = dividend
         self.interest = interest
+        self.classification = classification
 
     def set_dividend(self, dividend, random=False):
         if random:
@@ -70,8 +71,8 @@ class Asset:
     
 class Derivative(Asset):
     
-        def __init__(self, name, market, price_history, volume, underlying, pricing=None):
-            super().__init__(name, market, price_history, volume)
+        def __init__(self, name, market, price_history, volume, underlying, dividend=0, interest=0, pricing=None):
+            super().__init__(name, market, price_history,'Derivative' ,volume, dividend, interest)
             self.underlying = underlying
             self.pricing = pricing
     

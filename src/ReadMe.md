@@ -45,3 +45,40 @@ Set rules that trades and strategies must follow
 ## Shocks
 
 Add randomness to markets to prevent equilibrium and no-trade
+
+
+
+# TODO:
+
+## main
+
+- Initialize agents
+- - Come up with complete agents, implement backwards. ie Firm1 low risk tolerance, medium funds
+- Finish initializing assets (25%)
+- Implement one market time period
+
+## Agent
+
+- Portfolio tracker
+- - Novel Object or numpy
+- add function to post bid/offer
+
+## Strategy
+
+### Trading Strategies
+- Choose initial strategies to implement
+- - ETS, BSM, Naive, Random Walk
+- Determine outputs of buy/sell
+- - trade object?
+
+### Portfolio Strategies
+- Choose strategies for initial agents
+
+## Market
+
+## Institution
+- add market level rules, low priority
+
+## Shock
+- implement different shock types
+

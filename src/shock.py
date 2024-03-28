@@ -6,41 +6,59 @@ from agent import *
 from strategy import *
 from shock import *
 
-class Shock:
+class Shock(ABC):
 
     def __init__(self, severity=np.randint(-10,10)):
-        self.name = ''
         self.severity = severity
 
     def set_severity(self, severity):
         self.severity=severity
 
-    def random_shock(self):
+class Random_shock(Shock):
         shocks = [] # list of shocks
+        ## I'm not sure if this works
+        np.random.choice(shocks)
 
-    def new_agent(self):
-        pass
+class New_agent(Shock):
+    def __init__():
+        super().__init__() 
 
-    def new_asset(self):
-        pass
 
-    def institutional_shock(self, institution):
-        pass
+class New_asset(Shock):
+    def __init__():
+        super().__init__()
 
-    def market_shock(self, market):
-        pass
+class Institutional_shock(Shock):
+        def __init__(self, institution , severity=np.randint(-10,10)):
+            super().__init__(severity)
+            self.institution = institution
 
-    def agent_shock(self, agent):
-        pass
 
-    def supply_shock(self, asset):
-        pass
+class Market_shock(Shock):
+        def __init__(self, market, severity=np.randint(-10,10)):
+            super().__init__(severity)
+            self.market = market
 
-    def demand_shock(self, asset):
-        pass
+class Agent_shock(Shock):
+        def __init__(self, agent, severity=np.randint(-10,10)):
+            super().__init__(severity)
+            self.agent = agent
 
-    def strategy_shock(self, agent, strategy):
-        pass
+class Supply_shock(Shock):
+        def __init__(self, severity=np.randint(-10,10), asset=None):
+            super().__init__(severity)
+            self.asset = asset
+
+class Demand_shock(Shock):
+        def __init__(self, severity=np.randint(-10,10), asset=None):
+            super().__init__(severity)
+            self.asset = asset
+
+class Strategy_shock(Shock):
+        def __init__(self, agent, strategy, severity=np.randint(-10,10)):
+            super().__init__(severity)
+            self.agent = agent
+            self.strategy = strategy
 
 
 
