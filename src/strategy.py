@@ -30,3 +30,5 @@ class Trading_Strategy(ABC):
     @abstractmethod
     def sell(self):
         pass
+
+    

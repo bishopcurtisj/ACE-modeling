@@ -1,5 +1,10 @@
 from abc import ABC, abstractmethod
 import numpy as np
+from market import *
+from institution import *
+from agent import *
+from strategy import *
+from shock import *
 
 class Shock:
 
@@ -32,6 +37,9 @@ class Shock:
         pass
 
     def demand_shock(self, asset):
+        pass
+
+    def strategy_shock(self, agent, strategy):
         pass
 
 
