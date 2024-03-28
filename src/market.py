@@ -31,7 +31,7 @@ class Market:
 
 class Asset:
 
-    def __init__(self, name, market, price_history, volume):
+    def __init__(self, name, market, price_history, volume, dividend=0, interest=0):
         self.name = name
         market.add_asset(self)
         self.offers = []
@@ -40,8 +40,23 @@ class Asset:
         self.price = price_history[-1]
         market.update_price(self)
         self.price_history = price_history
+        self.dividend = dividend
+        self.interest = interest
+
+    def set_dividend(self, dividend, random=False):
+        if random:
+            self.dividend = np.random.exponential(dividend)
+        else:
+            self.dividend = dividend
+
+    def set_interest(self, interest, random=False):
+        if random:
+            self.interest = np.random.exponential(interest)
+        else:
+            self.interest = interest
 
     def update_history(self, price):
+        self.price = price
         self.price_history.append(price)
 
     def get_volatility(self):
